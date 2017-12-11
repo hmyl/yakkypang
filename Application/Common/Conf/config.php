@@ -8,11 +8,10 @@ return array(
 	'DB_PWD'                =>  '@yakkypang123',         // 密码
 
 	// localhost
-/*	'DB_HOST'               =>  'localhost', // 服务器地址
-	'DB_NAME'               =>  'hqdb',          // 数据库名
-	'DB_USER'               =>  'root',      // 用户名
-#
-	'DB_PWD'                =>  '',          // 密码*/
+	'DB_HOST'               =>  '47.94.89.31', // 服务器地址
+	'DB_NAME'               =>  'memeda',          // 数据库名
+	'DB_USER'               =>  'yakkypang',      // 用户名
+	'DB_PWD'                =>  '123456',          // 密码
 
 #	'DB_PWD'                =>  '',          // 密码*/
 	'DB_PORT'               =>  '3306',        // 端口
