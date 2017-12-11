@@ -3,19 +3,19 @@
 <head>
 	<meta charset="UTF-8">
 	<title>YAKKY PANG</title>
-	<link rel="stylesheet" type="text/css" href="/yakkypang/Public/css/reset.css">
-	<link rel="stylesheet" type="text/css" href="/yakkypang/Public/css/amazeui.css">
-	<link rel="stylesheet" type="text/css" href="/yakkypang/Public/css/home.css">
+	<link rel="stylesheet" type="text/css" href="/Public/css/reset.css">
+	<link rel="stylesheet" type="text/css" href="/Public/css/amazeui.css">
+	<link rel="stylesheet" type="text/css" href="/Public/css/home.css">
 </head>
 <body>
 	<div class="am-slider am-slider-default" data-am-flexslider id="demo-slider-0" >
 	  <ul class="am-slides">
 	  	<?php if(is_array($re)): foreach($re as $key=>$v): ?><li><img src="<?php echo ($v["photo"]); ?>" /></li><?php endforeach; endif; ?>
-	    <!-- <li><img src="/yakkypang/Public/img/index/hunter006.jpg" /></li>
-	    <li><img src="/yakkypang/Public/img/index/military001.jpg" /></li>
-	    <li><img src="/yakkypang/Public/img/index/military002.jpg" /></li>
-	    <li><img src="/yakkypang/Public/img/index/military004.jpg" /></li>
-	    <li><img src="/yakkypang/Public/img/index/shirt006.jpg" /></li> -->
+	    <!-- <li><img src="/Public/img/index/hunter006.jpg" /></li>
+	    <li><img src="/Public/img/index/military001.jpg" /></li>
+	    <li><img src="/Public/img/index/military002.jpg" /></li>
+	    <li><img src="/Public/img/index/military004.jpg" /></li>
+	    <li><img src="/Public/img/index/shirt006.jpg" /></li> -->
 	  </ul>
 	</div>	
 	<div class="nav">
@@ -39,9 +39,9 @@
 		</ul>
 	</div>	
 </body>
-<script type="text/javascript" src="/yakkypang/Public/js/jquery-3.2.1.min.js"></script> 
-<script type="text/javascript" src='/yakkypang/Public/js/amazeui.js'></script>
-<script type="text/javascript" src='/yakkypang/Public/js/language.js'></script>
+<script type="text/javascript" src="/Public/js/jquery-3.2.1.min.js"></script> 
+<script type="text/javascript" src='/Public/js/amazeui.js'></script>
+<script type="text/javascript" src='/Public/js/language.js'></script>
 <!-- <script type="text/javascript" src='./data.js'></script> -->
 <script>
 // var data = <?php echo ($data); ?>;
