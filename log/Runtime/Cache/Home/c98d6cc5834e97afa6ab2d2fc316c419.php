@@ -1,18 +1,18 @@
-﻿<!DOCTYPE html>
+<?php if (!defined('THINK_PATH')) exit();?>﻿<!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
 	<title>YAKKY PANG</title>
-	<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/reset.css">
-	<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/amazeui.css">
-	<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/content.css">
+	<link rel="stylesheet" type="text/css" href="/Public/css/reset.css">
+	<link rel="stylesheet" type="text/css" href="/Public/css/amazeui.css">
+	<link rel="stylesheet" type="text/css" href="/Public/css/content.css">
 </head>
 <body style="overflow: auto;">
 	<div class="content clearfixed">
 		<div class="content_right">
 			<div class="content_logo">
-				<a href="{:U('index/home')}" style="display: block;line-height: 140px;height: 100%;color: white;font-size: 25px;font-weight: 700;">
-					<img src="__PUBLIC__/img/images/logo11.png" alt="">
+				<a href="<?php echo U('index/home');?>" style="display: block;line-height: 140px;height: 100%;color: white;font-size: 25px;font-weight: 700;">
+					<img src="/Public/img/images/logo11.png" alt="">
 				</a>
 			</div>
 			<div class="content_list">
@@ -21,35 +21,33 @@
 						<a target="iframe" href="javascript:;" title="" target="yakky">	COLLECTION</a>
 					</li>
 					<ul class="list_1_wrap content_wrap f15">
-						<foreach name="mu" item="v">
-							<a href="{:U('index/collection',['zh'=>I('get.zh'),'id'=>$v['id']])}" target="yakky" data = '1'><li class="desc">{$v.desc}</li></a>
-						</foreach>
+						<?php if(is_array($mu)): foreach($mu as $key=>$v): ?><a href="<?php echo U('index/collection',['zh'=>I('get.zh'),'id'=>$v['id']]);?>" target="yakky" data = '1'><li class="desc"><?php echo ($v["desc"]); ?></li></a><?php endforeach; endif; ?>
 					</ul>
-					<li class="content_list_1_wrap "><a name="yakky" href="{:U('index/about',['zh'=>I('get.zh','en')])}"  target="yakky" class="lang" >ABOUT US</a></li>
+					<li class="content_list_1_wrap "><a name="yakky" href="<?php echo U('index/about',['zh'=>I('get.zh','en')]);?>"  target="yakky" class="lang" >ABOUT US</a></li>
 					<li class="content_list_1_wrap"><a href="mailto:administrator@yakkypang.com"  class="lang">CONTACT</a></li>
 					<li class="content_list_1_wrap lang" onclick='fun(event)' >LANGUAGE</li>
 						<ul class="list_2_wrap">
 							<li class="f15" onclick='en()'>ENGLISH</li>
 							<li class="f15" onclick='cn()'>中文</li>
 						</ul>
-					<li class="content_list_1_wrap"><a name="yakky" href="{:U('index/link')}"  target="yakky" class="lang">LINK</a></li>
+					<li class="content_list_1_wrap"><a name="yakky" href="<?php echo U('index/link');?>"  target="yakky" class="lang">LINK</a></li>
 				</ul>
 			</div>
 		</div>
 		<div class="content_left">
-			<iframe _src="" src="{:U('index/collection',['id'=>I('get.id')])}" name='yakky' style="width: 100%;height:100%;overflow-x: hidden;"></iframe>
+			<iframe _src="" src="<?php echo U('index/collection',['id'=>I('get.id')]);?>" name='yakky' style="width: 100%;height:100%;overflow-x: hidden;"></iframe>
 		</div>
 	</div>
 </body>
-<script type="text/javascript" src="__PUBLIC__/js/jquery-3.2.1.min.js"></script> 
-<script type="text/javascript" src='__PUBLIC__/js/amazeui.js'></script>
-<script type="text/javascript" src='__PUBLIC__/js/language.js'></script>
+<script type="text/javascript" src="/Public/js/jquery-3.2.1.min.js"></script> 
+<script type="text/javascript" src='/Public/js/amazeui.js'></script>
+<script type="text/javascript" src='/Public/js/language.js'></script>
 <!-- <script type="text/javascript" src='./data.js'></script> -->
 <script type="text/javascript">
-// var data = {$data};
+// var data = <?php echo ($data); ?>;
 	
 $(function(){
-	$('.content_logo a').attr('href','{:U("index/home")}?zh='+zh);
+	$('.content_logo a').attr('href','<?php echo U("index/home");?>?zh='+zh);
 })
 var currentUrl = this.location.href;
 var s=currentUrl.indexOf("=");
@@ -58,7 +56,7 @@ var t=currentUrl.substring(s+1);// t就是?后面的东西了
 t = getUrlParam('list');
 // var t = ;
 
-var lang = "{:I('get.zh',0)}";
+var lang = "<?php echo I('get.zh',0);?>";
 if(lang == "cn"){
 	chinese();
 	
@@ -72,14 +70,10 @@ function en(){
 		t = 1;
 	}
 	var src = $('iframe').attr('_src');
-	
 	if(src == ""){
-		src = "{:I('get.url','')}";	
-	}
-	
-	src = src.replace("zh/cn",'zh/en');
-	console.log(src);
-	location.href="{:U('index/content')}?zh=en&url="+src;
+	src = "<?php echo I('get.url','');?>";	
+}
+	location.href="<?php echo U('index/content');?>?zh=en&url="+src;
 }
 function cn(){
 	var f = $('.list_1_wrap').css('display');
@@ -87,13 +81,11 @@ function cn(){
 		t = 1;
 	}
 	var src = $('iframe').attr('_src');
-    if(src == ""){
-        src = "{:I('get.url','')}";     
-	}
-	
-	src=src.replace('zh/en','zh/cn');
-	console.log(src);
-	location.href="{:U('index/content')}?zh=cn&url="+src;
+        if(src == ""){
+        src = "<?php echo I('get.url','');?>";     
+}
+
+	location.href="<?php echo U('index/content');?>?zh=cn&url="+src;
 }
 $('a').click(function(){
 
@@ -124,7 +116,7 @@ if(t == 1){
 }else{
 	//$('.content_list_1_wrap').css('background','#030000');
 	//$('.content_list_1_wrap').eq(4).css('background','#383737');
-	var src = "{:I('get.url','0')}";
+	var src = "<?php echo I('get.url','0');?>";
 	if(src==0){
 	   src = $('.content_list_1_wrap').eq(4).find('a').attr('href');
 	}

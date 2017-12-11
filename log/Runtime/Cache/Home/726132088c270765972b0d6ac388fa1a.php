@@ -1,11 +1,11 @@
-<!DOCTYPE html>
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
 	<title>collection</title>
-	<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/reset.css">
-	<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/amazeui.css">
-	<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/collection.css">
+	<link rel="stylesheet" type="text/css" href="/Public/css/reset.css">
+	<link rel="stylesheet" type="text/css" href="/Public/css/amazeui.css">
+	<link rel="stylesheet" type="text/css" href="/Public/css/collection.css">
 </head>
 <body>
 	<div class="wrap clearfixed">
@@ -16,7 +16,7 @@
 		
 		<div class="am-slider am-slider-default wrap_left" data-am-flexslider="{slideshow: false,animationLoop: false,prevText: 'Previous',nextText:'map',directionNav:true}" id='slider' style="background: black;">
 		    <ul class="am-slides" id="am-slides-0">
-			    <li style="display: none;"><img src="__PUBLIC__/img/sor2.png" alt=""></li>
+			    <li style="display: none;"><img src="/Public/img/sor2.png" alt=""></li>
 		    </ul>
 
 		  	<div class="slid f20">
@@ -26,18 +26,18 @@
 		<div id="bottom" >
 			<div class="am-slider am-slider-default am-slider-carousel bottom" data-am-flexslider="{itemWidth: 71, itemMargin: 0, slideshow: false,  }" id="slider1" >
 				<ul class="am-slides">
-				    <li><img src="__PUBLIC__/img/sor2.png"  class="bottom_img" /></li>
+				    <li><img src="/Public/img/sor2.png"  class="bottom_img" /></li>
 				</ul>
 			</div>
 		</div>
 	</div>
 	<input type="hidden" id="json-data" data="">
 </body>
-<script type="text/javascript" src="__PUBLIC__/js/jquery-3.2.1.min.js"></script> 
-<script type="text/javascript" src='__PUBLIC__/js/amazeui.js'></script>
+<script type="text/javascript" src="/Public/js/jquery-3.2.1.min.js"></script> 
+<script type="text/javascript" src='/Public/js/amazeui.js'></script>
 <!-- <script type="text/javascript" src='./data.js'></script> -->
 <script type="text/javascript">
-	var data =  {$data};
+	var data =  <?php echo ($data); ?>;
 	data = jQuery.parseJSON(data);
 	console.log(data);
 	$(function(){

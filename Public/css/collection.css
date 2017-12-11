@@ -11,14 +11,15 @@ body,html{
 	height: 0;
 }
 .wrap{
+	background: #000;
 	width: 100%;
 	overflow: hidden;
 	height: 100%;
 }
 .wrap_right{
 	width: 50%;
-	/*height: 100%;*/
 	float: left;
+    background: #000;
 }
 .wrap_right img,.wrap_left img{
 	width: 100%;
