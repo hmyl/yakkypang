@@ -1,0 +1,65 @@
+<div class="pageContent" id="hq2017">
+    <foreach name="lists" item='v' key="k">
+
+    </foreach>
+    <notpresent name="Think.get.way">
+    <div class="panelBar">
+        <ul class="toolBar">
+            <li><a class="add" href="{:U('IntoHelp/add_series',array('series_id'=>I('get.id'),'name'=>I('get.name')))}" target="navTab" title="新增"><span>新增</span></a></li>
+        </ul>
+    </div>
+    </notpresent>
+    <table class="table" width="100%" layoutH="110">
+        <thead>
+        <tr>
+            <th>序号</th>
+            <th>系列名称</th>
+            <th>左侧图</th>
+            <th>右侧图</th>
+            <th>是否显示</th>
+            <th>操作</th>
+        </tr>
+        </thead>
+        <tbody>
+        <foreach name="lists" item='v' key="k">
+            <!-- data list  -->
+            <tr target="sid_user" rel="1">
+                <td>{$k+1}</td>
+                <td>{$Think.get.name}</td>
+                <td>
+                    <img data-original="{$v.photo}" width="40" height="40" src="{$v.photo|crop=40,40}" alt="图">
+                </td>
+                <td>
+                    <foreach name="v.images" item='v1' key="k">
+                        <img data-original="{$v1}" width="40" height="40" src="{$v1|crop=40,40}" alt="图">
+                    </foreach>
+                </td>
+                <td>
+                    <if condition="$v.status eq 1">
+                        <a title="确定隐藏吗？" target="ajaxTodo" href="{:U('IntoHelp/isShow',array('ids'=>$v['id'],'status'=>'0','ser'=>1))}"
+                       >是</a>
+                    <else />
+                        <a title="确定显示吗？" target="ajaxTodo" href="{:U('IntoHelp/isShow',array('ids'=>$v['id'],'status'=>'1','ser'=>1))}"
+                           >否</a>
+                    </if>
+                </td>
+                <td>
+                    <a title="编辑{$v.name}" target="navTab" href="{:U('IntoHelp/add_series',array('series_id'=>I('get.id'),id=>$v['id'],'name'=>I('get.name')))}""
+                       class="btnEdit">编辑</a>
+                    <a title="刪除" target="ajaxTodo" href="{:U('IntoHelp/delAll',array('ids'=>$v['id'],'ser'=>1))}"
+                       class="btnDel">删除</a>
+                </td>
+            </tr>
+            <!-- data list -->
+        </foreach>
+        </tbody>
+    </table>
+</div>
+
+<script type="text/javascript">
+    $(function() {
+        $('#hq2017').viewer({
+            url: 'data-original'
+        });
+    });
+</script>

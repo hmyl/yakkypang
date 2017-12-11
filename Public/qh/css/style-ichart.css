@@ -1,0 +1,15 @@
+.ichart-title{font-size: 18px;font-weight: normal;padding: 10px 0;}
+.search-form{font-size: 14px;}
+.section-chart{padding-top: 20px;}
+.hq-highchart{padding-bottom: 10px;}
+.hq-highchart .table-box{float: left;}
+.hq-highchart .ichart-box{float: left;}
+.section-chart .title{font-size: 14px;font-weight: normal;}
+.i-chart.form-box{padding:0;padding-top: 10px;}
+.i-chart.form-box input{width: 100px;}
+.i-chart.form-box .sep-line{line-height: 32px;float: left;padding:0 10px;}
+.i-chart.form-box input.ipt1{margin:0;}
+.i-chart.t_list li{margin-right:0;}
+
+/*i-chart-3*/
+.per100.table_form{width: 100%;}

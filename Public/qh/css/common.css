@@ -1,0 +1,63 @@
+html {font-size: 12px; -webkit-font-smoothing: antialiased; position: relative; }
+ body, ul, ol, dl, dd, h1, h2, h3, h4, h5, h6, figure, form, fieldset, legend, input, textarea, button, p, blockquote, th, td, pre, xmp {margin: 0; padding: 0; }
+ body, input, textarea, button, select, pre, tt, code, kbd, samp, optgroup, option {line-height: 1.5; font-family: arial, '\5fae\8f6f\96c5\9ed1', 'Microsoft YaHei', '\5b8b\4f53', arial, verdana, helvetica, sans-serif; }
+ table {border-collapse: collapse; border-spacing: 0; text-align: left; }
+ caption, th {text-align: inherit; }
+ ul, ol, menu {list-style: none; }
+ fieldset, img {border: 0 none; }
+ img, object, input, textarea, button, select {vertical-align: top; }
+ article, aside, footer, header, section, nav, figure, figcaption, hgroup, details, menu {display: block; }
+ audio, canvas, video {display: inline-block; *display: inline; *zoom: 1; }
+ h1, h2, h3, h4, h5, h6, input, textarea, button, select, small {font-size: 100%; }
+ address, cite, dfn, em, i, optgroup, var {font-style: normal; }
+ .clearfix {*zoom: 1; }
+ .clearfix:before, .clearfix:after {content: "\0020"; display: block; height: 0; overflow: hidden; clear: both; }
+ textarea {overflow: auto; resize: none; }
+ textarea, input {outline: none; }
+ mark {background-color: ; }
+ ins, s, u, del {text-decoration: none; }
+ a {color: #00be8f; text-decoration: none; outline: none; }
+ a:hover {color: #01b185; text-decoration: none; }
+ button {border: 0 none; }
+ input[disabled] {background: #f4f4f4; color: #d6d6d6; }
+ input::-moz-placeholder, textarea::-moz-placeholder {color: #fff; }
+ input:-ms-input-placeholder, textarea:-ms-input-placeholder {color: #fff; }
+ input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {color: #fff; }
+ ::-ms-reveal {display: none; }
+ .bg_f4 {background: #f4f4f4; }
+ .fl {float: left; }
+ .fr {float: right; }
+ /**/ .buyLayer {width: 100%; height: 100%; position: fixed; top: 0; left: 0; z-index: 100; }
+ .opacity_layer {width: 100%; height: 100%; position: absolute; top: 0; left: 0; z-index: 11; opacity: 0.5; filter: alpha(opacity=50); -moz-opacity: 0.5; background: #000; }
+ .buyLayerCon {width: 100%; height: 100%; overflow: hidden; position: absolute; top: 0; left: 0; z-index: 11 ; text-align: center; }
+ .buyEwmBox {width: 400px; height: 428px; position: absolute; top: 100px; left: 50%; margin-left: -200px; background: #f83d46; border-radius: 12px; }
+ .buyEwm {width: 200px; height: 200px; overflow: hidden; margin: 30px auto; }
+ .buyEwm img {width: 100%; }
+ .buyEwmBox p {font-size: 28px; text-align: center; color: #fff; }
+ .buyTitle {margin-top: 48px; }
+ .buyTitleDc {border-top: 1px solid #fff; padding-top: 20px; }
+ .closeBuyBox {position: absolute; top: -20px; right: -20px; width: 58px; height: 58px; background: url(../images/closeBuyBox.png); }
+ /*layer*/ #site-nav {position: absolute; left: 0; top: 0; }
+ #site-nav li {float: left; }
+ .box-content {margin: 0 auto; padding: 0 40px 20px; }
+ .box-content.in {display: block; }
+ .box-content.out {display: none; }
+ .error-msg {color: red; font-size: 16px; height: 30px; line-height: 30px; text-align: center; }
+ .user-input input {border-radius: 5px; border: 1px solid #dddddd; color: #333333; font-size: 16px; height: 30px; line-height: 30px; padding-left: 10px; width: 340px; }
+ .user-input input.small {width: 120px; }
+ .user-input .code-input {width: 218px; }
+ .user-input .code-btn {background: #ffffff; border: 1px solid #f5a623; color: #f5a623; cursor: pointer; font-size: 18px; height: 32px; line-height: 32px; margin-left: 10px; text-align: center; width: 108px; }
+ .user-input button[disabled] {border-color: #dddddd; font-size: 12px; }
+ .user-input label {*display: inline; *zoom: 1; color: #333333; display: inline-block; font-size: 16px; line-height: 32px; width: 112px; }
+ .user-input label.small {width: auto; }
+ .user-input select {border: 1px solid #dddddd; font-size: 14px; height: 32px; width: 110px; }
+ .user-input span {padding: 0 5px 0 2px; }
+ .user-input select.time {width: 70px; }
+ .user-submit button {background: #F83D46; border-radius: 5px; border: none; color: #ffffff; cursor: pointer; font-family: "Microsoft YaHei"; font-size: 18px; height: 34px; line-height: 34px; margin-left: 150px; text-align: center; width: 160px; }
+ .select-box {font-size: 0px; }
+ .select-box span {font-size: 12px; }
+ #element_id .province {width: 136px; }
+ .mt26 {margin-top: 26px; }
+ .mt56 {margin-top: 56px; }
+ .cxdialog.in {top: 50%!important; }
+ 

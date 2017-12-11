@@ -1,0 +1,90 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=5.0" charset="UTF-8">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="format-detection" content="telephone=no">
+		<title>登录</title>
+		<link href="__PUBLIC__/login/css/reset.css" rel="stylesheet">
+		<link rel="stylesheet" href="__PUBLIC__/login/css/font.css" />
+		<link rel="stylesheet" href="__PUBLIC__/login/css/swiper-3.3.1.min.css" />
+		<link rel="stylesheet" href="__PUBLIC__/login/css/common.css" />
+		<link rel="stylesheet" href="__PUBLIC__/login/css/Homepage.css" />
+		<link rel="stylesheet" href="__PUBLIC__/login/css/ModularForm.css" />
+		<link rel="stylesheet" href="__PUBLIC__/login/css/LoginRegister.css" />
+		<script type="text/javascript" src="__PUBLIC__/login/js/Libs/jquery.min.js" ></script>
+		<script type="text/javascript" src="__PUBLIC__/login/js/Libs/jquery.json.js" ></script>
+	</head>
+	<body>
+		<div class="wrapper">
+			<!--页头-->
+			<header class="header">
+				<a href="#" class="return floatL"></a>
+				<h3 class="floatL Logo headTit">登录</h3>
+			</header>				
+			<section class="main" id="groupForm">
+				<div class="DeInfo_Inpet DeInfo_Inpet2">
+					<input type="hidden" name="house_number" value="<?php if(isset($_GET['id'])){echo $_GET['id'];} ?>">
+					<div class="DeInfoInput LoginInput">
+						<label class="icon-1 floatL"></label>
+						<label style="display: none;" >手机号</label>
+						<input name="username" type="text" placeholder="请输入手机号" class="DeInfo_text" data-regtest="^1[3|4|5|7|8]\d{9}$ ">
+					</div>
+					<div class="DeInfoInput LoginInput">
+						<label class="icon-11 floatL"></label>
+						<label style="display: none;">密码</label>
+						<input name="password" type="password" placeholder="请输入密码" class="DeInfo_text" data-regtest="\d">
+					</div>
+					<p class="errorShow"></p>
+					
+				</div>
+				<!--按钮-->
+				<div class="BtnCont">
+					<button class="BigBtn" id="yanzheng">立即登录</button>
+				</div>
+				<!-- <div class="loginLink">
+					<div class="loginLink_text"><a href="#">注册</a><span>|</span><a href="#">忘记密码</a></div>
+				</div> -->
+			</section>
+			
+		</div>
+		<script type="text/javascript" src="__PUBLIC__/login/js/Libs/swiper-3.3.1.jquery.min.js" ></script>
+		<script type="text/javascript" src="__PUBLIC__/login/js/common.js" ></script>
+		<!-- <script type="text/javascript" src="__PUBLIC__/login/js/yanzheng.js" ></script> -->
+		<script>
+			$(function(){
+				$('#yanzheng').click(function(){
+					var name = $('input[name="username"]').val();
+					var password = $('input[name="password"]').val();
+					var house_number = $('input[name="house_number"]').val();
+					var url = '{:U('home/login/LoginHandle')}';
+					$('.errorShow').show();
+					if(name.length!=11){
+						$('.errorShow').text('请填写正确手机号');
+					}
+					$('.errorShow').text('');
+					$.ajax({
+						url: url,
+						type: 'POST',
+						dataType: 'json',
+						data: {username:name,password:password,house_number:house_number},
+					})
+					.done(function(re) {
+						if(re.status == 0){
+							$('.errorShow').text(re.info);
+						}else{
+							window.location.href= re.url;
+						}
+					})
+					.fail(function() {
+						console.log("error");
+					})
+					.always(function() {
+						console.log("complete");
+					});
+				})
+			})
+		</script>
+	</body>
+</html>

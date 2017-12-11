@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>河曲县精准脱贫挂图作战信息平台</title>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/qh/css/common.css">
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/qh/css/style.css">
+    <script src="__PUBLIC__/qh/jquery/jquery-1.8.3.min.js"></script>
+    <script src="__PUBLIC__/qh/js/hq.js"></script>
+    <script src="__PUBLIC__/qh/jquery/jquery.validate.min.js"></script>
+    <!--[if lt IE 9]>
+      <script src="__PUBLIC__/qh/js/html5shiv.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+      <include file="Common:left_nav" />
+      <div id="mainContent" class="content">
+        <!-- title list and search-->
+           <include file="index_nav" />
+          <div class="breadcrumbs">
+             <a href="__PUBLIC__/qh/enterprise_list3.html">帮扶责任人</a> &gt; <a href="#"><if condition="$Think.get.pid" >修改<else />新增</if></a>
+          </div>
+          <div class="add-form-box">
+            <form action="#" class="clearfix" id="js-zeRenRen" >
+               <div class="form-input clearfix">
+                 <label>单&nbsp;位&nbsp;名&nbsp;称</label>
+                 <select name="danweiid" class="select w400">
+                   <option>--请选择单位--</option>}
+                   <volist name="list" id="vo">
+                   <option <if condition="$vo.pid eq $danweiid">selected</if> value="{$vo.pid}">{$vo.mingcheng}</option>
+                   </volist>
+                 </select>
+               </div>
+               <div class="form-input clearfix">
+                 <label>责任人姓名</label><input type="text" name="xingming" id="xingming" value="{$xingming}">
+               </div>
+               <div class="form-input clearfix">
+                 <label>责任人电话</label><input type="tel" name="tel" id="tel" value="{$tel}">
+               </div>
+               <div class="form-input clearfix">
+                 <label>责任人职务</label><input type="text" name="zhiwu" id="zhiwu" value="{$zhiwu}">
+               </div>
+               <div class="form-input clearfix">
+                 <label>责任人性别</label>
+                 <label for="xingbie1">
+                  <input type="radio" class="jos-radio"  id="xingbie1" name="xingbie" <if condition="$xingbie eq '1'">checked</if>  value="1">男
+                  </label>
+                  <label for="xingbie2">
+                 <input type="radio" class="jos-radio"  id='xingbie2' name="xingbie" <if condition="$xingbie eq '2'">checked</if>  value="2">女
+                 </label>
+               </div>
+               <if condition="!empty($pid)" >
+                 <input type="hidden" name="pid" value="{$pid}">
+               </if>
+               <div class="form-input clearfix">
+                 <label>政治面貌</label><input type="text" name="mianmao" id="mianmao" value="{$mianmao}">
+               </div>
+               <div class="form-input clearfix">
+                 <label>备&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;注</label>
+                 <textarea cols="60" rows="10" name="memo" >{$memo}</textarea>
+               </div>
+               <p><input type="submit" class="save" value="提交"></p>
+            </form>
+          </div>
+      </div>
+      </div>
+
+  </body>
+</html>
+<script>
+  $(function(){
+    $().ready(function() {
+        $("#js-zeRenRen").validate({
+            rules: {
+              xingming: {
+                required: true,
+              },
+              lianxiren: {
+                required: true,
+              },
+              tel: {
+                required: true,
+              },
+              danweiid:{
+                required: true,
+              },
+              zhiwu:{
+                required: true,
+              }
+            },
+            messages: {
+              xingming: {
+                required: "责任人姓名不能为空"
+              },
+              xingbie: {
+                required: "责任人性别没有选择"
+              },
+              tel:{
+                required: "电话不能为空"
+              },
+              danweiid:{
+                required: '单位id不能为空',
+              },
+              zhiwu:{
+                required: '职务不能为空',
+              }
+            }
+        });
+    });
+    $.validator.setDefaults({
+        submitHandler: function() {
+          var data = $('form').serialize();
+          $.ajax({
+            url: '{:U('zerenrenadd')}',
+            type: 'POST',
+            dataType: 'json',
+            data: data,
+          })
+          .done(function(re) {
+            if(re.status==1){
+              location.href  = re.url;
+            }else{
+              alert(re.info)
+            }
+          })
+        }
+    });
+  })
+</script>

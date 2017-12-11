@@ -1,0 +1,12 @@
+closeCurrent:关闭当前的tab
+
+
+
+		+00:00	+00:00	
+ET	+0902+03842	Africa/Addis_Ababa		+03:00	+03:00	Link to Africa/Nairobi
+DZ	+3647+00303	Africa/Algiers		+01:00	+01:00	
+ER	+1520+03853	Africa/Asmara		+03:00	+03:00	Link to Africa/Nairobi
+ML	+1239-00800	Africa/Bamako		+00:00	+00:00	Link to Africa/Abidjan
+CF	+0422+01835	Africa/Bangui		+01:00	+01:00	Link to Africa/Lagos
+GM	+1328-01639	Africa/Banjul		+00:00	+00:00	Link to Africa/Abidjan
+GW	+1151-01535	Africa/Bissau

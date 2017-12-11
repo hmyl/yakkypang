@@ -1,0 +1,161 @@
+<style>
+        .sub-list-box{
+          background: #F8F8F8;
+        }
+        .sub-list-box p{
+          text-align: left;
+        }
+        .sub-list-box a{
+          font-size:14px;
+          padding-left:60px;
+        }
+        .sub-list-box a:hover{
+            padding-left:70px;
+           font-size:14px !important;
+        }
+        .sub-title{position: relative;}
+        .aside .on{
+          display: block !important;
+        }
+        .sub-item.selected{
+          background: #eadacb;
+        }
+        .dropdown-menu::before {
+          content: '';
+          display: inline-block;
+          border-left: 6px solid transparent;
+          border-right: 6px solid transparent;
+          border-top: 6px solid black;
+          position: absolute;
+          top: 22px;
+          right: 33px;
+        }
+         /*.dropdown-menu::after {
+             content: '';
+             display: inline-block;
+             border-left: 6px solid transparent;
+             border-right: 6px solid transparent;
+             border-bottom: 6px solid white;
+             position: absolute;
+             top: 22px;
+             right: 33px;
+          } */
+</style>
+<header class="banner">
+  <p>河曲县精准脱贫挂图作战信息平台</p>
+</header>
+<div class="home-main clearfix">
+  <aside id="aside" class="aside">
+    <h2 class="title"><span>分类</span></h2>
+    <ul class="list">
+      <li><a href="{:U('manager/index/index')}" <if condition="strtolower($Think.const.CONTROLLER_NAME) eq 'index'" >class="active"</if>>扶持帮扶团队</a></li>
+      <!-- <li><a href="{:U('manager/poor/index')}" <if condition="strtolower($Think.const.CONTROLLER_NAME) eq 'poor'" >class="active"</if>>贫困户信息管理</a></li> -->
+      
+      <li>
+        <div id="subTabBtn" class="sub-title"><a class="dropdown-menu {:focus('townsAppraise/*')}{:focus('poor/*')}{:focus('democratic/*')}" href="javascript:void(0);">贫困户信息管理</a></div>
+        <div id="subTabBox" class="sub-list-box" style="display: none;" >
+            <p class="sub-item"><a href="">贫困户信息一张图</a></p>
+            <p class="sub-item {:focus('poor/upload','selected')}{:focus('poor/detail','selected')}{:focus('poor/index','selected')}"><a href="{:U('manager/poor/index')}">贫困户申请</a></p>
+            <p class="sub-item {:focus('democratic/index','selected')}{:focus('democratic/add','selected')}"><a href="{:U('manager/democratic/index')}">村级民主评议</a></p>
+            <p class="sub-item {:focus('townsAppraise/index','selected')}{:focus('townsAppraise/add','selected')}"><a href='{:U("manager/townsAppraise/index")}'>乡镇评议</a> </p>
+        </div>
+      </li>
+	  <li>
+        <div id="subTabBtn" class="sub-title"><a class="dropdown-menu {:focus('village/*')}{:focus('Xianggonggao/*')}{:focus('PoorApply/*')}{:focus('Fupinban/*')}" href="javascript:void(0)">贫困村信息管理</a></div>
+        <div id="subTabBox" class="sub-list-box" style="display: none;">
+            <p class="sub-item"><a href="#">贫困存信息一张图</a></p> 
+            <p class="sub-item {:focus('PoorApply/index,add','selected')}"><a href="{:U('PoorApply/index')}">贫困村申请</a></p>
+            <p class="sub-item {:focus('Xianggonggao/index,add','selected')}"><a href="{:U('xianggonggao/index')}">乡镇公示和报告</a></p>
+            <p class="sub-item {:focus('Fupinban/index,add','selected')}"><a href="{:U('fupinban/index')}">县扶贫办公告</a></p>
+
+            <p class="sub-item {:focus('village/upload,registerTable,index','selected')}"><a href="{:U('village/index')}">贫困村登记</a> </p>
+        </div>
+      </li>
+	  <li>
+        <div id="subTabBtn" class="sub-title"><a class="dropdown-menu {:focus('HelpWay/*')}" href="javascript:void(0)">扶贫措施管理</a></div>
+        <div id="subTabBox" class="sub-list-box" style="display: none;">
+            <p class="sub-item {:focus('HelpWay/index,detail','selected')}"><a href="{:U('HelpWay/index')}">贫困户扶贫管理</a></p>
+            <p class="sub-item {:focus('HelpWay/cun,cunDetail','selected')}"><a href="{:U('HelpWay/cun')}">贫困村扶贫管理</a></p>
+        </div>
+      </li>
+	  <li>
+        <div id="subTabBtn" class="sub-title"><a class="dropdown-menu" href="javascript:void(0)">乡镇扶贫动态</a></div>
+        <div id="subTabBox" class="sub-list-box" style="display: none;">
+            <p class="sub-item"><a href="">扶贫动态一张图</a></p>
+            <p class="sub-item"><a href="">贫困户扶贫动态</a></p>
+			<p class="sub-item"><a href="">贫困村扶贫动态</a></p>
+        </div>
+      </li>
+	  <li>
+        <div id="subTabBtn" class="sub-title"><a class="dropdown-menu" href="javascript:void(0)">乡镇脱贫管理</a></div>
+        <div id="subTabBox" class="sub-list-box" style="display: none;">
+            <p class="sub-item"><a href="">贫困户管理</a></p>
+            <p class="sub-item"><a href="">贫困村管理</a></p>
+			<p class="sub-item"><a href="">乡镇脱贫管理</a></p>
+        </div>
+      </li>
+	  <li>
+        <div id="subTabBtn" class="sub-title"><a class="dropdown-menu" href="javascript:void(0)">扶贫概述管理</a></div>
+        <div id="subTabBox" class="sub-list-box" style="display: none;">
+            <p class="sub-item"><a href="">扶贫办公告</a></p>
+            <p class="sub-item"><a href="">贫困户公告</a></p>
+			<p class="sub-item"><a href="">贫困村通告</a></p>
+			<p class="sub-item"><a href="">乡镇动态管理</a></p>
+            <p class="sub-item"><a href="">贫困典型案例</a></p>
+			<p class="sub-item"><a href="">突发事件管理</a></p>
+			<p class="sub-item"><a href="">尽职考核管理</a></p>
+			<p class="sub-item"><a href="">扶贫动态汇总</a></p>
+        </div>
+      </li>
+	  <li>
+        <div id="subTabBtn" class="sub-title"><a class="dropdown-menu" href="javascript:void(0)">扶贫地图管理</a></div>
+        <div id="subTabBox" class="sub-list-box" style="display: none;">
+            <p class="sub-item"><a href="">贫困人口分布</a></p>
+            <p class="sub-item"><a href="">致贫原因分布</a></p>
+			<p class="sub-item"><a href="">脱贫时限分布</a></p>
+			<p class="sub-item"><a href="">帮扶单位分布</a></p>
+            <p class="sub-item"><a href="">帮扶责任人分布</a></p>
+			<p class="sub-item"><a href="">帮扶资金分布</a></p>
+			<p class="sub-item"><a href="">帮扶措施分布</a></p>
+        </div>
+      </li>
+	  <li>
+        <div id="subTabBtn" class="sub-title"><a class="dropdown-menu" href="javascript:void(0)">扶贫统计管理</a></div>
+        <div id="subTabBox" class="sub-list-box" style="display: none;">
+            <p class="sub-item"><a href="">贫困村情况统计</a></p>
+            <p class="sub-item"><a href="">致贫原因统计</a></p>
+			<p class="sub-item"><a href="">脱贫团队统计</a></p>
+			<p class="sub-item"><a href="">贫困人口统计</a></p>
+            <p class="sub-item"><a href="">文化程度统计</a></p>
+			<p class="sub-item"><a href="">脱贫情况统计</a></p>
+			<p class="sub-item"><a href="">扶贫措施统计</a></p>
+			<p class="sub-item"><a href="">贫困类型统计</a></p>
+        </div>
+      </li>
+	  <li>
+        <div id="subTabBtn" class="sub-title"><a class="dropdown-menu" href="javascript:void(0)">资料远程管理</a></div>
+        <div id="subTabBox" class="sub-list-box" style="display: none;">
+            <p class="sub-item"><a href="">视频录制管理</a></p>
+            <p class="sub-item"><a href="">视频播放管理</a></p>
+			<p class="sub-item"><a href="">远程文件管理</a></p>
+			<p class="sub-item"><a href="">视频插入管理</a></p>
+        </div>
+      </li>
+	  <li>
+        <div id="subTabBtn" class="sub-title"><a class="dropdown-menu" href="javascript:void(0)">县脱贫管理</a></div>
+        <div id="subTabBox" class="sub-list-box" style="display: none;">
+            <p class="sub-item"><a href="">贫困户退出管理</a></p>
+            <p class="sub-item"><a href="">贫困村退出管理</a></p>
+			<p class="sub-item"><a href="">动态通报管理</a></p>
+			<p class="sub-item"><a href="">突发事件推送</a></p>
+        </div>
+      </li>
+	  <li>
+        <div id="subTabBtn" class="sub-title"><a class="dropdown-menu" href="javascript:void(0)">用户管理</a></div>
+        <div id="subTabBox" class="sub-list-box" style="display: none;">
+            <p class="sub-item"><a href="">添加用户</a></p>
+            <p class="sub-item"><a href="">用户管理</a></p>>
+        </div>
+      </li>
+    </ul>
+  </aside>

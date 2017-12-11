@@ -1,0 +1,47 @@
+html,body{width: 100%;height: 100%;overflow: hidden;}
+input,button{border:none;outline: none;}
+.bg-img-box{position: absolute;left:0;top:0;width: 100%;height: 100%;background:#fff url(../images/bg_login.jpg) no-repeat center center;}
+.full-bg { background-repeat: no-repeat; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover; }
+.login-header,
+.login-section,
+.login-footer{position: relative;z-index: 1;min-width: 1241px;}
+.login-header{text-align: center;padding-top: 210px;}
+.login-header .logo{font-size: 30px;height: 59px;color:white;width: 512px;display: inline-block; *display: inline; *zoom: 1;}
+.login-box{background: url(../images/bg_login_form.png) no-repeat;width: 1241px;height: 453px;margin:0 auto;}
+.copy-right{text-align: center;color:#fff;font-size: 20px;}
+.mt22{margin-top: 22px;}
+.mt44{margin-top: 44px;}
+.login-section{padding-top: 77px;}
+.login-form{width: 466px;margin:0 auto;padding-top: 66px;}
+.ipt-box{width: 466px;height: 73px;background: url(../images/login_title.png) no-repeat;display: inline-block; *display: inline; *zoom: 1;position: relative;}
+.ipt-box input{width: 100%;height: 73px;line-height: 73px;font-size:28px;text-indent: 64px;color:#fff;}
+/*35x36*/
+.ipt-box .user{background: transparent url(../images/login_user.png) no-repeat;background-position: 15px 18px;}
+.ipt-box .pwd{background: transparent url(../images/login_pwd.png) no-repeat;background-position: 15px 18px;}
+.login-ipt-box{width: 464px;height: 61px;background: url(../images/login_btn.png) no-repeat;}
+.login-ipt-box input{width: 100%;height: 100%;font-size:28px;line-height: 28px; color:#fff;background: transparent;text-align: center;cursor: pointer;}
+.err-tip{display: none;color:#ff0000;position: absolute;right: -305px;top:22px;font-size: 22px;width: 300px;}
+.err .err-tip{display: block;}
+
+.pop-layer{ position: absolute;width: 100%;height: 100%;top:0;left:0;}
+.pop-layer .pop-mask{position: absolute;top:0;left:0;z-index: 9999;opacity: 0.55; background: #2E2E2E;width: 100%;height: 100%;}
+.pop-layer .pop-box{position: absolute; z-index: 10000;width: 366px;background: #FFFFFF; box-shadow: 0px 0px 3px 1px rgba(185,185,185,0.50); border-radius: 3px;}
+.pop-layer .pop-box{margin:0 auto;top:50%;left:50%;margin: -115px 0 0 -183px;color: #ACACAC;font-size: 15px;}
+.pop-box header{height: auto;min-height: 25px;}
+.pop-box header h2{padding-top: 27px; font-size: 24px; color: #666666; line-height: 32px;font-weight: normal;text-align: center;}
+.pop-box header .close{position: absolute;right: 23px;top:13px;cursor: pointer;}
+.pop-close{position: absolute;right: 23px;top:13px;cursor: pointer;}
+.pop-box header .suc-box{padding:0;height: 164px; line-height: 164px;}
+.pop-box header .h2-tip{padding:0; padding: 45px 0;}
+.pop-box header .h2-tip{font-size: 23px; color: #666666;  line-height: 38px;}
+.pop-box section{padding:18px 0;}
+.pop-box section .msg{font-size: 16px; color: #666666; letter-spacing: 1px; line-height: 27px; text-align: center;}
+.pop-box footer{height: 53px;border-top: 2px solid #E8E8E8;line-height: 53px;text-align: center;}
+.pop-box footer a{font-size: 18px; color: #FF0000;}
+.pop-box .ico{display: inline-block; *display: inline; *zoom: 1;}
+.pop-box .ico-failed{width: 21px; height: 21px;background: url(../img/assets/icon_wrong.png) no-repeat;position: relative;top:2px;}
+.pop-box .ico-succ{width: 26px; height: 20px;background: url(../img/assets/icon_succeed_1x.png) no-repeat;position: relative;top:2px;}
+.pop-box .mr12{margin-right: 12px;}
+.pop-box .pop-btn{display: inline-block; *display: inline; *zoom: 1;width: 179px;}
+.pop-box .pop-btn1{border-right: 2px solid #E8E8E8;}
+.pop-box footer .pop-btn1{color:#666;}

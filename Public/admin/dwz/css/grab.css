@@ -1,0 +1,83 @@
+.pageFormContent p{
+	min-width: 500px;
+}
+span.error{
+	/*display: inline-block;*/
+	/*width:auto;*/
+}
+.day-time-select span{
+	float: left;
+	padding: 0 5px;
+}
+.day-time-select label{
+	font-size: 12px;
+    width: 31px;
+    margin-left: 87px;
+}
+.day-time-select{
+	position: relative;
+}
+.time-flag{
+	float: left;
+	font-style: normal;
+}
+#timeRange_btn{
+    border: none;
+    outline: none;
+    margin-left: 5px;
+    font-size: 14px;
+    background: #31b0d5;
+    color:#fff;
+}
+.service_hours{
+	float: left;
+	width:500px;
+}
+.opening_hours{
+	float: left;
+}
+.time-selected{
+	background: #019875 !important;
+	color:#ffffff !important;
+}
+.thought-line{
+	height: 1px;
+	width:100%;
+	background: #b8d0d6;
+}
+.catalog-box,
+.item-box{
+	padding: 20px 0;
+}
+.item-box h2,
+.catalog-box h2{
+	font-size:16px;
+	line-height: 28px;
+}
+.grab-btn-box .button{
+
+}
+.grab-btn-box button{
+	padding:0;
+}
+.grab-btn-box .buttonActive{
+
+}
+.mr10{
+	margin-right: 10px;
+}
+.grab-upload{
+    margin-left: 130px;
+}
+.grab-upload .pic-box{
+	margin-top: 10px;
+}
+
+/*服务时间选择*/
+.day-time-select li{
+	position: relative;
+	margin:5px 0;
+}
+.pageFormContent p{
+	width:auto;
+}

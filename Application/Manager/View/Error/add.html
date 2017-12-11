@@ -1,0 +1,75 @@
+<h2 class="contentTitle"><if condition="$id">编辑<esle />新增</if>幫扶措施</h2>
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/admin/dwz/uploadify/css/uploadify.css">
+<div id="topic_add_box" class="pageContent">
+    <form method="post" action="{:U('PovertyAllevationActivity/addPlan')}" class="pageForm required-validate" onsubmit="return validateCallback(this, navTabAjaxDone);">
+        <div class="pageFormContent" layoutH="96">
+            <div class="unit">
+                <label>活动名称 :</label>
+                <input type="text" name="name" value="{$name}" placeholder="活动名称"/>
+            </div>
+            <div class="unit">
+                <label>活动单位 :</label>
+                <input type="text" name="activity_unit" value="{$activity_unit}" placeholder="活动单位"/>
+            </div>
+            <div class="unit">
+                <label >活动季度:</label>
+                <select class="combox" name="season">
+                    <option value="">选择季度</option>
+                    <option value="1" <if condition="$season eq 1">selected</if> >&nbsp;1季度&nbsp;</option>
+                    <option value="2" <if condition="$season eq 2">selected</if> >&nbsp;2季度&nbsp;</option>
+                    <option value="3" <if condition="$season eq 3">selected</if> >&nbsp;3季度&nbsp;</option>
+                    <option value="4" <if condition="$season eq 4">selected</if> >&nbsp;4季度&nbsp;</option>
+                </select>
+            </div>
+            <div class="unit">
+                <label>活动地址 :</label>
+                <input type="text" name="address" value="{$address}" placeholder="活动地址"/>
+            </div>
+            <div class="unit">
+                <label style="">描述:</label><textarea name="desc" id="" cols="30" rows="5">{$desc}</textarea>
+            </div>
+            <div class="unit">
+                <label>上传照片 :</label>
+                <!--dom结构部分-->
+                <div class="upload-img-one grab-upload">
+                    <!-- class img-one:单张图 img-more:多张图 data-input-name代表后台对象的接收字段名-->
+                    <div class="img-picker img-one">select</div>
+                    <if condition="$photo">
+                    <div class="img-show wh150" data-input-name="photo">
+                        <div class="pic-box">
+                            <span class="close_img"></span>
+                            <img src="{$photo}">
+                            <input type="hidden" name="photo" value="{$photo}">
+                        </div>
+                        
+                    </div>
+                    <else />
+                    <div class="img-show wh150" data-input-name="photo"></div>
+                    </if>
+                </div>
+            </div>
+            <div class="unit">
+                <label>活动时间:</label>
+                <input type="text" value="{$activity_time|substr=0,10}" dateFmt="yyyy-MM-dd" minDate="2000" name="activity_time" class="date" readonly="true"/>
+                <a class="inputDateButton" href="javascript:;">选择</a>
+            </div>
+
+            <div class="unit">
+                <label>操&nbsp;&nbsp;作：</label>
+                <div class="buttonActive"><div class="buttonContent"><button type="submit">save</button></div></div>
+                <div class="button"><div class="buttonContent"><button type="button" class="close">cancel</button></div>
+            </div>
+        </div>  
+        <if condition="$id">
+             <input type="hidden" name="id" value="{$id}">
+        </if>
+    </form>
+</div>
+<script type="text/javascript">
+    $(function(){
+        // 初始化时间选择
+        initSellerTimePick("#topic_add_box");
+        //初始化并绑定图片上传
+        bindImgPicker("#topic_add_box");
+    });
+</script>

@@ -1,0 +1,6 @@
+<ul class="t_list">
+  <li <if condition="strtolower($Think.const.ACTION_NAME) eq 'index' or strtolower($Think.const.ACTION_NAME) eq 'add'">class="active"</if> ><a href="{:U('index')}">帮扶单位</a></li>
+  <li <if condition="strtolower($Think.const.ACTION_NAME) eq 'villageteamlist' or strtolower($Think.const.ACTION_NAME) eq 'villageteamadd' ">class="active"</if>><a href="{:U('villageteamlist')}">驻村工作队</a></li>
+  <li <if condition="strtolower($Think.const.ACTION_NAME) eq 'zerenren' or strtolower($Think.const.ACTION_NAME) eq 'zerenrenadd'">class="active"</if>><a href="{:U('zerenren')}">帮扶负责人</a></li>
+  <li <if condition="strtolower($Think.const.ACTION_NAME) eq 'firstsecretarylist' or strtolower($Think.const.ACTION_NAME) eq 'addfirstsecretary'">class="active"</if>><a href="{:U('firstSecretaryList')}">村第一书记</a></li>
+</ul>

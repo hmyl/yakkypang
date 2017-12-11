@@ -1,0 +1,56 @@
+<div class="pageContent" style="padding-left:20px" id="hq2017">
+    <notpresent name="Think.get.way">
+        <div class="panelBar">
+            <ul class="toolBar">
+                <li><a class="add" href="{:U('IndexImages/add_series',array('way'=>1))}" target="navTab" title="新增"><span>新增</span></a></li>
+                <li><a class="delete" target="selectedTodo" rel="ids" postType="string" href="{:U('IndexImages/delAll')}"
+                       title="删除"><span>删除</span></a></li>
+                <li class="line">line</li>
+            </ul>
+        </div>
+    </notpresent>
+    <table width="100%" >
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>缩略图</th>
+                <!-- <th>是否显示</th> -->
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            <foreach name="lists" item='v'>
+                <!-- data list  -->
+                <tr target="" rel="1">
+                    <td>{$v.id}</td>
+                    <td style="height: 40px;"><img data-original="{$v.photo}" src="{$v.photo|crop=40,40}" alt=""></td>
+                    <td style="display: none;">
+                        <if condition="$v.status eq 1">
+                            <a title="确定隐藏吗？" target="ajaxTodo" href="{:U('IndexImages/isShow',array('ids'=>$v['id'],'status'=>'0'))}"
+                           >隐藏</a>
+                        <else />
+                            <a title="确定显示吗？" target="ajaxTodo" href="{:U('IndexImages/isShow',array('ids'=>$v['id'],'status'=>'1'))}"
+                               >显示</a>
+                        </if>
+                    </td>
+                    <td>
+                        <a title="编辑{$v.name}" target="navTab" href="{:U('IndexImages/add_series',array('id'=>$v['id'],'way'=>1))}"
+                           class="btnEdit">编辑</a>
+                        <a title="刪除" target="ajaxTodo" href="{:U('IndexImages/delAll',array('ids'=>$v['id']))}"
+                           class="btnDel">删除</a>
+                    </td>
+                </tr>
+                <!-- data list -->
+            </foreach>
+        </tbody>
+    </table>
+</div>
+
+<script type="text/javascript">
+    $(function() {
+      $('#hq2017').viewer({
+        url: 'data-original',
+      });
+    });
+
+</script>

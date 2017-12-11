@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>河曲县精准脱贫挂图作战信息平台</title>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/qh/css/common.css">
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/qh/css/style.css">
+    <script src="__PUBLIC__/qh/jquery/jquery-1.8.3.min.js"></script>
+    <!--<script src="__PUBLIC__/qh/js/hq.js"></script>-->
+    <script src="__PUBLIC__/qh/jquery/jquery.validate.min.js"></script>
+    <!--[if lt IE 9]>
+      <script src="__PUBLIC__/qh/js/html5shiv.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <include file="Common:left_nav" />
+      <div id="mainContent" class="content">
+        <!-- title list and search-->
+          <include file="index_nav" />
+          <div class="breadcrumbs">
+             <a href="./enterprise_list2.html">驻村工作队</a> &gt; <a href="#">新增/修改</a>
+          </div>
+          <div class="add-form-box">
+            <form method="post" action="" id="add_team" class="clearfix">
+               <div class="form-input clearfix">
+                  <input type="hidden" name="pid" id="pid" value="<if condition='isset($team)'>{$team.pid}</if>">
+                 <label>工作队名</label><input name="mingcheng" id="mingcheng" type="text" class="required" value="<if condition = 'isset($team)'>{$team.mingcheng}</if>">
+               </div>
+               <div class="form-input clearfix">
+                 <label>队长姓名</label>
+                 <select name="duizhang">
+                   <foreach name='user' item='v'>
+                     <option value="{$v.uid}" <if condition = "$team.duizhang eq $v['uid']">selected</if>>{$v.user_name}</option>
+                   </foreach>
+                 </select>
+               </div>
+               <!-- <div class="form-input clearfix">
+                 <label>联系电话</label><input name="dianhua" type="text" class="isMobile">
+               </div> -->
+               <div class="form-input clearfix">
+                 <label>备&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;注</label>
+                 <textarea name="memo" id="mome" cols="60" rows="10"><if condition='$team'>{$team.memo}</if></textarea>
+               </div>
+               <div class="form-input w150 clearfix">
+                 <label>队&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;员1</label>
+                   <select name="duiyuan_id[]">
+                       <option value="0">请选择队员</option>
+                       <foreach name="user" item="v">
+                           <option value="{$v.uid}" <if condition = "$team[duiyuan][0][duiyuanid] eq $v['uid']">selected</if>>{$v.user_name}</option>
+                       </foreach>
+
+                   </select>
+                   <if condition = "empty($team[duiyuan][0][duiyuanid]) eq true">
+                       <span class="add">添加</span>
+                   <else />
+                       <span class="remove">移除</span>
+                   </if>
+               </div>
+               <div class="form-input w150 clearfix">
+                   <label>队&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;员2</label>
+                   <select name="duiyuan_id[]">
+                       <option value="0">请选择队员</option>
+                       <foreach name="user" item="v">
+                           <option value="{$v.uid}" <if condition = "$team[duiyuan][1][duiyuanid] eq $v['uid']">selected</if>>{$v.user_name}</option>
+                       </foreach>
+
+                   </select>
+                   <if condition = "empty($team[duiyuan][1][duiyuanid]) eq true">
+                       <span class="add">添加</span>
+                   <else />
+                       <span class="remove">移除</span>
+                   </if>
+               </div>
+               <div class="form-input w150 clearfix">
+                   <label>队&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;员3</label>
+                   <select name="duiyuan_id[]">
+                       <option value="0">请选择队员</option>
+                       <foreach name="user" item="v">
+                           <option value="{$v.uid}" <if condition = "$team[duiyuan][2][duiyuanid] eq $v['uid']">selected</if>>{$v.user_name}</option>
+                       </foreach>
+
+                   </select>
+                   <if condition = "empty($team[duiyuan][2][duiyuanid]) eq true">
+                       <span class="add">添加</span>
+                   <else />
+                       <span class="remove">移除</span>
+                   </if>
+               </div>
+               <div class="form-input w150 clearfix">
+                   <label>队&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;员4</label>
+                   <select name="duiyuan_id[]">
+                       <option value="0">请选择队员</option>
+                       <foreach name="user" item="v">
+                           <option value="{$v.uid}" <if condition = "$team[duiyuan][3][duiyuanid] eq $v['uid']">selected</if>>{$v.user_name}</option>
+                       </foreach>
+
+                   </select>
+                   <if condition = "empty($team[duiyuan][3][duiyuanid]) eq true">
+                       <span class="add">添加</span>
+                   <else />
+                       <span class="remove">移除</span>
+                   </if>
+               </div>
+               <p><input id="add_village_team" type="submit" class="save" value="提交"></p>
+            </form>
+          </div>
+      </div>
+      </div>
+      <script type="text/javascript">
+        var _url = "{:U('manager/index/saveVillageTeam',[],'')}";
+        var _save_member_url = "{:U('manager/index/addTeamMember')}";
+        var _remove_member_url = "{:U('manager/index/removeTeamMember')}";
+        $().ready(function() {
+          $("#add_team").validate({
+              onsubmit:true,// 是否在提交是验证 
+              onfocusout:false,// 是否在获取焦点时验证 
+              onkeyup :false,// 是否在敲击键盘时验证
+              rules: {
+                mingcheng: {
+                  required: true,
+                },
+                duizhang_name:{
+                  required:true,
+                }
+              },
+              messages: {
+                mingcheng: {
+                  required: "请输入工作队名称"
+                },
+                duizhang_name:{
+                  required:"请选择队长",
+                }
+              },
+              submitHandler: function(form){
+                  var data = $(form).serialize();
+                  $.ajax({
+                      url:_url,
+                      type:'post',
+                      data:data,
+                      dataType:'json',
+                      success:function(data){
+                        if(data.code == 0){
+                          alert(data.info);
+                          location.href = "{:U('manager/index/villageTeamList')}";
+                        }else{
+                          alert(data.info);
+                        }
+                      },
+                  });     
+              }  
+          });
+      });
+
+      $(function(){
+        $(".add").on('click',function(){
+            var _this =$(this);
+            var user_id = $(this).prev("select").find("option:selected").val();
+            var team_id = $("#pid").val();
+            console.debug(user_id);
+            if(user_id == 0 || user_id == null){
+                alert("请选择队员");
+                return ;
+            }
+            $.ajax({
+                url:_save_member_url,
+                type:'post',
+                dataType:'json',
+                data:{
+                    'gongzuoduiid':team_id,
+                    'duiyuanid' : user_id
+                },
+                success:function(data){
+                    if(data.code == 0){
+                       _this.removeClass("add").addClass("remove").html("移除");
+                    }else{
+                        alert(data.info);
+                    }
+                }
+            });
+        });
+
+        //移除队员
+        $(".remove").on('click',function(){
+          var _this =$(this);
+          var user_id = $(this).prev("select").find("option:selected").val();
+          var team_id = $("#pid").val();
+          console.debug(user_id);
+          if(user_id == 0 || user_id == null){
+              alert("请选择队员");
+              return ;
+          }
+          $.ajax({
+              url:_remove_member_url,
+              type:'post',
+              dataType:'json',
+              data:{
+                  'gongzuoduiid':team_id,
+                  'duiyuanid' : user_id
+              },
+              success:function(data){
+                  if(data.code == 0){
+                      _this.removeClass("remove").addClass("add").html("添加");
+                      _this.prev("select").find("option:first").attr('selected',true);
+                  }else{
+                      alert(data.info);
+                  }
+              }
+          });
+        });
+      });
+      </script>
+  </body>
+</html>

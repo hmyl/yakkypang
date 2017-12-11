@@ -1,0 +1,16 @@
+帮扶单位 驻村工作对 帮扶责任人 村第一书记
+enterprise_list1
+enterprise_list2
+enterprise_list3
+enterprise_list4
+
+贫困户管理
+脱贫计划管理
+扶贫项目管理
+季度工作管理
+
+enter_
+poor_
+project_
+plan_
+work_

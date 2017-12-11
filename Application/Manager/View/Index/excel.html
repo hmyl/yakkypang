@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>excel list </title>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/qh/css/common.css">
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/qh/css/style.css">
+<script src="__PUBLIC__/qh/jquery/jquery-1.8.3.min.js"></script><script src="__PUBLIC__/qh/js/hq.js"></script>
+    <!--[if lt IE 9]>
+      <script src="__PUBLIC__/qh/js/html5shiv.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <header class="banner">
+      <p>河曲县精准脱贫挂图作战信息平台</p>
+    </header>
+    <div class="home-main clearfix">
+      <!-- 左侧导航 -->
+      <!-- <include file="Common:left_nav" /> -->
+      <div id="mainContent" class="content">
+        <!-- title list and search-->
+          <!-- <ul class="t_list">
+              <li class="active"><a href="">帮扶单位</a></li>
+              <li><a href="">驻村工作队</a></li>
+              <li><a href="">帮扶负责人</a></li>
+              <li><a href="">村第一书记</a></li>
+          </ul> -->
+          <div class="form-box">
+            <form action="#" class="clearfix">
+              <label><img src="__PUBLIC__/qh/images/pls.png" /><a href="__PUBLIC__/qh/enterprise_list1_add.html">新增帮扶单位</a></label><input type="text"><button>查询</button>
+            </form>
+            <a href="{:U('upload')}" title="">上传excel</a>
+          </div>
+          <section>
+            <table border="0" class="hq-table">
+              <tr class="first">
+                <th>编号</th>
+                <th>帮扶单位名称</th>
+                <th>联系电话</th>
+                <th>联系人</th>
+                <th>录入时间</th>
+                <th>操作</th>
+              </tr>
+              <volist name="list" id="vo">
+	              <tr>
+	                <td>{$vo.id}</td>
+	                <td>{$vo.file_name}</td>
+	                <td>{$vo.file_size}</td>
+	                <td><if condition="$vo.upload_name neq 0">{$vo.upload_name}<else />管理员</if></td>
+	                <td>{$vo.ctime|date="y-m-d h:i:s",###}</td>
+	                <td><a href="{:U('importData',array('id'=>$vo['id']))}" class="hq-btn bc1 mr15">读取数据</a></td>
+	              </tr>
+              </volist>
+              <!-- <tr>
+                <td>9</td>
+                <td>地税局后勤管理办公室</td>
+                <td>18201030698</td>
+                <td>王五</td>
+                <td>2016/08/12</td>
+                <td><a href="#" class="hq-btn bc1 mr15">修改</a><a href="#" class="hq-btn bc2">删除</a></td>
+              </tr>
+              <tr>
+                <td>9</td>
+                <td>地税局后勤管理办公室</td>
+                <td>18201030698</td>
+                <td>王五</td>
+                <td>2016/08/12</td>
+                <td><a href="#" class="hq-btn bc1 mr15">修改</a><a href="#" class="hq-btn bc2">删除</a></td>
+              </tr> -->
+            </table>
+          </section>
+      </div>
+      </div>
+      <div>
+      		{$page}
+      </div>
+  </body>
+</html>

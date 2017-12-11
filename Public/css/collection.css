@@ -1,0 +1,101 @@
+body,html{
+	width: 100%;
+	height: 100%;
+	overflow:hidden;
+}
+.clearfixed:after{
+	content: ".";
+	clear: both;
+	display: block;
+	visibility: hidden;
+	height: 0;
+}
+.wrap{
+	width: 100%;
+	overflow: hidden;
+	height: 100%;
+}
+.wrap_right{
+	width: 50%;
+	/*height: 100%;*/
+	float: left;
+}
+.wrap_right img,.wrap_left img{
+	width: 100%;
+	height: 100%;
+}
+.wrap_left{
+	position: relative;
+	width: 50%;
+	height: 100%;
+	float: left;
+}
+.slid{
+	width: 100%;
+    height: 45px;
+    background: rgba(0,0,0,.9);
+    position: absolute;
+    top: 50%;
+    z-index: 9;
+    margin: -23px 0 0;
+    overflow: hidden;
+    opacity: 0.45;
+    color: #fff;
+    text-align: center;
+    line-height: 45px;
+}
+.bottom_img{
+	width: 130px;
+	/*height:150px;*/
+}
+.am-slider-carousel li {
+  margin-right: 4px;
+}
+	
+.am-slider-carousel{
+	width: 100%;
+	position: absolute;
+	bottom:0px;
+}
+.bottom .am-slides {
+	/*display: none;*/
+}
+#slider .am-prev{
+	top: 235px!important;
+    left: 49%!important;
+    transform: rotateZ(90deg);
+}
+#slider .am-next{
+	top: 65%!important;
+    left: 49%!important;
+    transform: rotateZ(90deg);
+}
+.leftBtn{
+	position: absolute;
+	left:30px;
+	display: inline-block;
+	cursor: pointer;
+}
+.rightBtn{
+	position: absolute;
+	right:30px;
+	display: inline-block;
+	cursor: pointer;
+}
+#bottom li{
+	position: relative;
+	background: #000;
+}
+
+#bottom .am-direction-nav{
+	position: absolute;
+}
+.f20{
+	font-size: 20px;
+}
+.am-slider-default .am-direction-nav a.am-next:before {
+    content: "\f105";
+}
+.am-slider-default .am-direction-nav a.am-prev:before {
+    content: "\f104";
+}

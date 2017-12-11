@@ -1,0 +1,117 @@
+<form id="pagerForm" method="post" action="">
+    <input type="hidden" name="status" value="">
+    <input type="hidden" name="keywords" value="{$keywords}"/>
+    <input type="hidden" name="pageNum" value="{$p|default='1'}"/>
+    <input type="hidden" name="numPerPage" value="{$row}"/>
+    <input type="hidden" name="orderField" value=""/>
+</form>
+
+<div class="pageHeader">
+    <form id="form-plan" onsubmit="return navTabSearch(this);" action="{:U('Error/index')}" method="post">
+        <div class="searchBar">
+            <table class="searchContent"> 
+                <tr>
+                    <td>
+                         <label style="width: 40px;">提交人：</label><input name="name"  value="{$name}" />
+                    </td>
+                    <td>
+                         <label>错误类型：</label>
+                         <select class="combox" name="error_type" ref="combox_city" >
+                            <option value="">全部</option>
+                            <option value="无法拍照" <if condition="$error_type eq '无法拍照'">selected</if> >无法拍照</option>
+                            <option value="信息录入错误" <if condition="$error_type eq '信息录入错误'">selected</if> >信息录入错误</option>
+                            <option value="卡顿" <if condition="$error_type eq '卡顿'">selected</if> >卡顿</option>
+                            <option value="其他问题" <if condition="$error_type eq '其他问题'">selected</if> >其他问题</option>
+                         </select>
+                    </td>
+                    <td>
+                         <label>状态：</label>
+                         <select class="combox" name="status" ref="combox_city" >
+                            <option value="">全部</option>
+                            <option value="2" <if condition="$status eq 2">selected</if> >已处理</option>
+                            <option value="1" <if condition="$status eq 1">selected</if> >没处理</option>
+                         </select>
+                    </td>
+                    <td>
+
+                    <button type="submit">查询</button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </form>
+</div>
+<div class="pageContent">
+    <!-- <div class="panelBar">
+        <ul class="toolBar">
+            <li><a class="add" href="{:U('Error/add',array('way'=>1))}" target="navTab" title="新增"><span>新增</span></a></li>
+            <li><a class="delete" target="selectedTodo" rel="ids" postType="string" href="{:U('Error/delAll')}"
+                   title="删除"><span>删除</span></a></li>
+            <li class="line">line</li>
+        </ul>
+    </div> -->
+    <table class="table" width="100%" layoutH="110">
+        <thead>
+        <tr>
+            
+            <!--字段对应区域开始-->
+            <!-- <th>序号</th> -->
+            <th>提交者</th>
+            <th>错误类型</th>
+            <th>电话</th>
+            <th>描述</th>
+            <th>状态</th>
+            <th>提交时间</th>
+            <th>描述</th>
+            <th>操作</th>
+        </tr>
+        </thead>
+        <tbody>
+        <foreach name="lists" item='v'>
+            <!-- data list  -->
+            <tr target="sid_user" rel="1">
+                <!--字段对应区域开始-->
+                <td>{$v.name}</td>
+                <td>{$v.error_type}</td>
+                <td>{$v.tel}</td>
+                <td>{$v.desc}</td>
+                <td><if condition="$v.status eq 2">已处理<else />未处理</if></td>
+                <td>{$v.create_time|date='Y-m-d H:i:s',###}</td>
+                <td>{$v.desc}</td>
+                <td>
+                    <if condition="$v.status eq 2">
+                    <a title="处理" href="javascript:;">已处理</a>
+                    <else />
+                    <a title="确定处理吗？" target="ajaxTodo" href="{:U('Error/delAll',array('ids'=>$v['id']))}"
+                       >处理</a>
+                    </if>
+                    
+                </td>
+            </tr>
+            <!-- data list -->
+        </foreach>
+        </tbody>
+    </table>
+    <div class="panelBar">
+        <div class="pages">
+            <span>显示</span>
+            <select class="combox" name="numPerPage" onchange="navTabPageBreak({numPerPage:this.value})">
+                <option value="20"
+                <if condition="$row eq 20">selected="selected"</if>
+                >20</option>
+                <option value="50"
+                <if condition="$row eq 50">selected="selected"</if>
+                >50</option>
+                <option value="100"
+                <if condition="$row eq 100">selected="selected"</if>
+                >100</option>
+                <option value="200"
+                <if condition="$row eq 200">selected="selected"</if>
+                >200</option>
+            </select>
+            <span>条，总共 {$count} 条</span>
+        </div>
+        <div class="pagination" targetType="navTab" totalCount="{$count}" numPerPage="{$row}" pageNumShown="50"
+             currentPage="{$p|default='1'}"></div>
+    </div>
+</div>

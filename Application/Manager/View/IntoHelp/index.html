@@ -1,0 +1,89 @@
+<form id="pagerForm" method="post" action="{:U('IntoHelp/index')}">
+    <input type="hidden" name="status" value="">
+    <input type="hidden" name="keywords" value="{$keywords}"/>
+    <input type="hidden" name="pageNum" value="{$p|default='1'}"/>
+    <input type="hidden" name="numPerPage" value="{$row}"/>
+    <input type="hidden" name="orderField" value=""/>
+</form>
+
+
+<div class="pageContent" id="hq2017">
+    <notpresent name="Think.get.way">
+        <div class="panelBar">
+            <ul class="toolBar">
+                <li><a class="add" href="{:U('IntoHelp/add',array('way'=>1))}" target="navTab" title="新增"><span>新增</span></a></li>
+                <li><a class="delete" target="selectedTodo" rel="ids" postType="string" href="{:U('IntoHelp/delAll')}"
+                       title="删除"><span>删除</span></a></li>
+                <li class="line">line</li>
+            </ul>
+        </div>
+    </notpresent>
+    <table class="table" width="100%" layoutH="110">
+        <thead>
+        <tr>
+            <notpresent name="Think.get.way">
+            <th width="20">全选<input type="checkbox" group="ids" class="checkboxCtrl"></th>
+            </notpresent>
+
+            <th>名称</th>
+            <th>介绍</th>
+            
+            
+            <th>是否显示</th>
+            <th>操作</th>
+        </tr>
+        </thead>
+        <tbody>
+        <foreach name="lists" item='v'>
+            <!-- data list  -->
+            <tr target="sid_user" rel="1">
+                <notpresent name="Think.get.way">
+                <td><input name="ids" value="{$v.id}" type="checkbox"></td>
+                </notpresent>
+                <td><a title="查看{$v.name}系列" target="navTab" rel="IH_list_1" href="{:U('IntoHelp/series',array('id'=>$v['id'],'name'=>$v['name']))}" >{$v.name}</a></td>
+                <td>{$v.desc}</td>
+                <td>
+                    <if condition="$v.status eq 1">
+                        <a title="确定隐藏吗？" target="ajaxTodo" href="{:U('IntoHelp/isShow',array('ids'=>$v['id'],'status'=>'0'))}"
+                       >隐藏</a>
+                    <else />
+                        <a title="确定显示吗？" target="ajaxTodo" href="{:U('IntoHelp/isShow',array('ids'=>$v['id'],'status'=>'1'))}"
+                           >显示</a>
+                    </if>
+                </td>
+                <td>
+                    <a title="查看{$v.name}" target="navTab" rel="IH_list_1" href="{:U('IntoHelp/series',array('id'=>$v['id'],'name'=>$v['name']))}" >查看</a>
+                    <a class="add" href="{:U('IntoHelp/add_series',array('series_id'=>$v['id'],'name'=>$v['name']))}" target="navTab" title="新增"><span>添加图片</span></a>
+                    <a title="编辑{$v.name}" target="navTab" href="{:U('IntoHelp/add',array('id'=>$v['id'],'way'=>1))}"
+                       class="btnEdit">编辑</a>
+                    <a title="刪除" target="ajaxTodo" href="{:U('IntoHelp/delAll',array('ids'=>$v['id']))}"
+                       class="btnDel">删除</a>
+                </td>
+            </tr>
+            <!-- data list -->
+        </foreach>
+        </tbody>
+    </table>
+    <div class="panelBar">
+        <div class="pages">
+            <span>显示</span>
+            <select class="combox" name="numPerPage" onchange="navTabPageBreak({numPerPage:this.value})">
+                <option value="20"
+                <if condition="$row eq 20">selected="selected"</if>
+                >20</option>
+                <option value="50"
+                <if condition="$row eq 50">selected="selected"</if>
+                >50</option>
+                <option value="100"
+                <if condition="$row eq 100">selected="selected"</if>
+                >100</option>
+                <option value="200"
+                <if condition="$row eq 200">selected="selected"</if>
+                >200</option>
+            </select>
+            <span>条，总共 {$count} 条</span>
+        </div>
+        <div class="pagination" targetType="navTab" totalCount="{$count}" numPerPage="{$row}" pageNumShown="10"
+             currentPage="{$p|default='1'}"></div>
+    </div>
+</div>

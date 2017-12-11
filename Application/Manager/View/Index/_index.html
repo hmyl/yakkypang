@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>河曲县精准脱贫挂图作战信息平台</title>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/qh/css/common.css">
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/qh/css/style.css">
+<script src="__PUBLIC__/qh/jquery/jquery-1.8.3.min.js"></script><script src="__PUBLIC__/qh/js/hq.js?t=13112"></script>
+    <!--[if lt IE 9]>
+      <script src="__PUBLIC__/qh/js/html5shiv.min.js"></script>
+    <![endif]-->
+  <body>
+      <include file="Common:left_nav" />
+      <div id="mainContent" class="content">
+        <!-- title list and search-->
+          <include file="index_nav" />
+          <div class="form-box">
+            <form method="get" action="" class="clearfix">
+              <label><img src="__PUBLIC__/qh/images/pls.png" /><a href="{:U('add')}">新增帮扶单位</a></label><input name="wd" type="text" value="{$Think.get.wd}" placeholder=""><button onclick="$('form').submit();">查询</button>
+            </form>
+          </div>
+          <section>
+            <table border="0" class="hq-table">
+              <tr class="first">
+                <th>编号</th>
+                <th>帮扶单位名称</th>
+                <th>联系电话</th>
+                <th>联系人</th>
+                <th>录入时间</th>
+                <th>操作</th>
+              </tr>
+              <volist name="list" id="vo" key="k">
+              <tr>
+                <td>{$k}</td>
+                <td>{$vo.mingcheng}</td>
+                <td>{$vo.lianxiren}</td>
+                <td>{$vo.lianxi_dianhua}</td>
+                <td>{$vo.ptime}</td>
+                <td><a href="{:U('edit',array('pid'=>$vo['pid']))}" class="hq-btn bc1 mr15">修改</a><a onclick ="if(confirm('确定删除吗？')) location.href='{:U('del', array('pid' => $vo['pid']))}'" class="hq-btn bc2">删除</a></td>
+              </tr>
+              </volist>
+            </table>
+          </section>
+           <div class="panelBar">
+           <if condition="$page" >
+            <div class="panalBox">
+              {$page}
+            </div>
+            </if>
+          </div>
+            <!-- the third -->
+      </div>
+      </div>
+
+  </body>
+</html>

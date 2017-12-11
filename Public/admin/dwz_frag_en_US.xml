@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<_AJAX_>
+
+<!-- dwz.dialog -->
+<_PAGE_ id="dialogFrag"><![CDATA[
+<div class="dialog" style="top:150px; left:300px;">
+	<div class="dialogHeader" onselectstart="return false;" oncopy="return false;" onpaste="return false;" oncut="return false;">
+		<div class="dialogHeader_r">
+			<div class="dialogHeader_c">
+				<a class="close" href="#close">close</a>
+				<a class="maximize" href="#maximize">maximize</a>
+				<a class="restore" href="#restore">restore</a>
+				<a class="minimize" href="#minimize">minimize</a>
+				<h1>pop-up window</h1>
+			</div>
+		</div>
+	</div>
+	<div class="dialogContent">
+	</div>
+	<div class="dialogFooter"><div class="dialogFooter_r"><div class="dialogFooter_c"></div></div></div>
+	<div class="resizable_h_l" tar="nw"></div>
+	<div class="resizable_h_r" tar="ne"></div>
+	<div class="resizable_h_c" tar="n"></div>
+	<div class="resizable_c_l" tar="w" style="height:300px;"></div>
+	<div class="resizable_c_r" tar="e" style="height:300px;"></div>
+	<div class="resizable_f_l" tar="sw"></div>
+	<div class="resizable_f_r" tar="se"></div>
+	<div class="resizable_f_c" tar="s"></div>
+</div>
+]]></_PAGE_>
+<!-- dwz.dialog shadow -->
+<_PAGE_ id="dialogProxy"><![CDATA[
+<div id="dialogProxy" class="dialog dialogProxy">
+	<div class="dialogHeader">
+		<div class="dialogHeader_r">
+			<div class="dialogHeader_c">
+				<a class="close" href="#close">close</a>
+				<a class="maximize" href="#maximize">maximize</a>
+				<a class="minimize" href="#minimize">minimize</a>
+				<h1></h1>
+			</div>
+		</div>
+	</div>
+	<div class="dialogContent"></div>
+	<div class="dialogFooter">
+		<div class="dialogFooter_r">
+			<div class="dialogFooter_c">
+			</div>
+		</div>
+	</div>
+</div>
+]]></_PAGE_>
+
+<!-- dwz.pagination -->
+<_PAGE_ id="pagination"><![CDATA[
+<ul>
+	<li class="j-first">
+		<a class="first" href="#"><span>home</span></a>
+		<span class="first"><span>home</span></span>
+	</li>
+	<li class="j-prev">
+		<a class="previous" href="#"><span>previou</span></a>
+		<span class="previous"><span>previou</span></span>
+	</li>
+	#pageNumFrag#
+	<li class="j-next">
+		<a class="next" href="#"><span>next</span></a>
+		<span class="next"><span>next</span></span>
+	</li>
+	<li class="j-last">
+		<a class="last" href="#"><span>end</span></a>
+		<span class="last"><span>end</span></span>
+	</li>
+	<li class="jumpto"><input class="textInput" type="text" size="4" value="#currentPage#" /><input class="goto" type="button" value="confirm" /></li>
+</ul>
+]]></_PAGE_>
+
+	
+<!-- dwz.alertMsg -->
+<_PAGE_ id="alertBoxFrag"><![CDATA[
+<div id="alertMsgBox" class="alert"><div class="alertContent"><div class="#type#"><div class="alertInner"><h1>#title#</h1><div class="msg">#message#</div></div><div class="toolBar"><ul>#butFragment#</ul></div></div></div><div class="alertFooter"><div class="alertFooter_r"><div class="alertFooter_c"></div></div></div></div>
+]]></_PAGE_>
+		
+<_PAGE_ id="alertButFrag"><![CDATA[
+<li><a class="button" rel="#callback#" onclick="alertMsg.close()" href="javascript:"><span>#butMsg#</span></a></li>
+]]></_PAGE_>
+
+<_PAGE_ id="calendarFrag"><![CDATA[
+<div id="calendar">
+	<div class="main">
+		<div class="head">
+			<table width="100%" border="0" cellpadding="0" cellspacing="2">
+			<tr>
+				<td><select name="year"></select></td>
+				<td><select name="month"></select></td>
+				<td width="20"><span class="close">×</span></td>
+			</tr>
+			</table>
+		</div>
+		<div class="body">
+			<dl class="dayNames"><dt>sunday</dt><dt>monday</dt><dt>tuesday</dt><dt>wednesday</dt><dt>thursday</dt><dt>friday</dt><dt>saturday</dt></dl>
+			<dl class="days">Date list of options</dl>
+			<div style="clear:both;height:0;line-height:0"></div>
+			<div class="tm">
+				<ul class="hh">
+					<li>0</li>
+					<li>1</li>
+					<li>2</li>
+					<li>3</li>
+					<li>4</li>
+					<li>5</li>
+					<li>6</li>
+					<li>7</li>
+					<li>8</li>
+					<li>9</li>
+					<li>10</li>
+					<li>11</li>
+					<li>12</li>
+					<li>13</li>
+					<li>14</li>
+					<li>15</li>
+					<li>16</li>
+					<li>17</li>
+					<li>18</li>
+					<li>19</li>
+					<li>20</li>
+					<li>21</li>
+					<li>22</li>
+					<li>23</li>
+				</ul>
+				<ul class="mm">
+					<li>0</li>
+					<li>5</li>
+					<li>10</li>
+					<li>15</li>
+					<li>20</li>
+					<li>25</li>
+					<li>30</li>
+					<li>35</li>
+					<li>40</li>
+					<li>45</li>
+					<li>50</li>
+					<li>55</li>
+				</ul>
+				<ul class="ss">
+					<li>0</li>
+					<li>10</li>
+					<li>20</li>
+					<li>30</li>
+					<li>40</li>
+					<li>50</li>
+				</ul>
+			</div>
+		</div>
+		<div class="foot">
+			<table class="time">
+				<tr>
+					<td>
+						<input type="text" class="hh" maxlength="2" start="0" end="23"/>:
+						<input type="text" class="mm" maxlength="2" start="0" end="59"/>:
+						<input type="text" class="ss" maxlength="2" start="0" end="59"/>
+					</td>
+					<td><ul><li class="up">&and;</li><li class="down">&or;</li></ul></td>
+				</tr>
+			</table>
+			<button type="button" class="clearBut">claer</button>
+			<button type="button" class="okBut">confirm</button>
+		<div>
+	</div>
+</div>
+]]></_PAGE_>
+
+<_PAGE_ id="navTabCM"><![CDATA[
+<ul id="navTabCM">
+	<li rel="reload">refresh tab</li>
+	<li rel="closeCurrent">close tab</li>
+	<li rel="closeOther">close other tabs</li>
+	<li rel="closeAll">close all tabs</li>
+</ul>
+]]></_PAGE_>
+<_PAGE_ id="dialogCM"><![CDATA[
+<ul id="dialogCM">
+	<li rel="closeCurrent">close pop-up window</li>
+	<li rel="closeOther">other pop-up window close</li>
+	<li rel="closeAll">close all pop-up window</li>
+</ul>
+]]></_PAGE_>
+<_PAGE_ id="externalFrag"><![CDATA[
+<iframe src="{url}" style="width:100%;height:{height};border:none;"></iframe>
+]]></_PAGE_>
+<_MSG_ id="validateFormError"><![CDATA[submitted incomplete data ,{0} Field has an error, please correct and then submit!]]></_MSG_>
+<_MSG_ id="sessionTimout"><![CDATA[Session timeout, please login again!]]></_MSG_>
+<_MSG_ id="alertSelectMsg"><![CDATA[please select the information!]]></_MSG_>
+
+<_MSG_ id="dwzTitle"><![CDATA[DWZ rich client framework]]></_MSG_>
+<_MSG_ id="mainTabTitle"><![CDATA[my home]]></_MSG_>
+</_AJAX_>

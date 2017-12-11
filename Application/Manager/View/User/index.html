@@ -1,0 +1,88 @@
+<form id="pagerForm" method="post" action="{:U('dictionary/index')}">
+	<input type="hidden" name="status" value="">
+	<input type="hidden" name="keywords" value="{$keywords}" />
+	<input type="hidden" name="pageNum" value="{$p|default='1'}" />
+	<input type="hidden" name="numPerPage" value="{$row}" />
+	<input type="hidden" name="orderField" value="" />
+</form>
+
+<div class="pageHeader">
+	<form rel="pagerForm" onsubmit="return navTabSearch(this);" action="__URL__" method="post">
+	<div class="searchBar">
+		<ul class="searchContent">
+			<li>
+				<label>用户名：</label>
+				<input type="text" name="keywords" value="{$keywords}"/>
+			</li>
+		</ul>
+		<div class="subBar">
+			<ul>
+				<li><div class="buttonActive"><div class="buttonContent"><button type="submit">查询</button></div></div></li>
+			</ul>
+		</div>
+	</div>
+	</form>
+</div>
+
+<div class="pageContent">
+	<div class="panelBar">
+		<ul class="toolBar">
+			<li><a class="add" href="__URL__/add" target="dialog" mask="true"><span>新增</span></a></li>
+		</ul>
+	</div>
+
+	<table class="table" width="100%" layoutH="138">
+		<thead>
+		<tr>
+			<th width="60">编号</th>
+			<th width="100" orderField="account" <if condition="$_REQUEST._order eq 'account'">class="{$_REQUEST._sort}"</if>>用户名</th>
+			<th width="100" orderField="create_time" <if condition="$_REQUEST._order eq 'create_time'">class="{$_REQUEST._sort}"</if>是>添加时间</th>
+			<th width="120" orderField="last_login_time" <if condition="$_REQUEST._order eq 'last_login_time'">class="{$_REQUEST._sort}"</if>>上次登录</th>
+			<th width="80" orderField="status" <if condition="$_REQUEST._order eq 'status'">class="{$_REQUEST._sort}"</if>>状态</th>
+			<th>操作</th>
+		</tr>
+		</thead>
+		<tbody>
+		<volist id="vo" name="lists">
+			<tr target="sid_user" rel="{$vo['id']}">
+				<td>{$vo['uid']}</td>
+				<td>{$vo['user_name']}</td>
+				<td>{$vo['ctime']|date="Y-m-d",###}</td>
+				<td>{$vo['last_login_time']|date="Y-m-d H:i:s",###}</td>
+				<td>
+					<if condition="$vo.status eq 1">
+						正常
+					<elseif condition="$vo.status eq 2"/>
+						锁定
+					<else />
+						删除
+					</if>
+				</td>
+
+				<td>
+					<a title="编辑{$v.name}" href="{:U('user/edit',array('uid'=>$vo['uid']))}" mask="true" target="dialog" class="btnEdit">编辑</a>
+					<a  href="{:U('user/password',array('uid'=>$vo['uid']))}" target="dialog" mask="true" ><span>修改密码</span></a>
+					<a title="确定刪除用户吗？" target="ajaxTodo" href="{:U('user/delete',array('uid'=>$vo['uid']))}" class="btnDel">删除</a>
+				</td>
+			</tr>
+		</volist>
+		</tbody>
+	</table>
+
+	<div class="panelBar">
+		<div class="pages">
+			<span>显示</span>
+			<select class="combox" name="numPerPage" onchange="navTabPageBreak({numPerPage:this.value})">
+				<option value="20" <if condition="$row eq 20">selected="selected"</if>  >20</option>
+				<option value="50" <if condition="$row eq 50">selected="selected"</if>>50</option>
+				<option value="100" <if condition="$row eq 100">selected="selected"</if>>100</option>
+				<option value="200" <if condition="$row eq 200">selected="selected"</if> >200</option>
+			</select>
+			<span>条，总共 {$count} 条</span>
+		</div>
+		<div class="pagination" targetType="navTab" totalCount="{$count}" numPerPage="{$row}" pageNumShown="50" currentPage="{$p|default='1'}"></div>
+	</div>
+
+</div>
+
+

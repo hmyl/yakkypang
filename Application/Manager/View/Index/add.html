@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>河曲县精准脱贫挂图作战信息平台</title>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/qh/css/common.css">
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/qh/css/style.css">
+    <script src="__PUBLIC__/qh/jquery/jquery-1.8.3.min.js"></script>
+    <script src="__PUBLIC__/qh/jquery/jquery.validate.min.js"></script>
+    <script>var _danwei_url = '{:U('addhandle')}';</script>
+    </script><script src="__PUBLIC__/qh/js/hq.js"></script>
+    <!--[if lt IE 9]>
+      <script src="__PUBLIC__/qh/js/html5shiv.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+      <include file="Common:left_nav" />
+      <div id="mainContent" class="content">
+        <!-- title list and search-->
+          <include file="index_nav" />
+          <div class="breadcrumbs">
+             <a href="__PUBLIC__/qh/enterprise_list1.html">帮扶单位</a> &gt; <a href="javascript:;"><if condition="$Think.get.pid" >修改<else />新增</if></a>
+          </div>
+          <div class="add-form-box">
+            <form method="post" action="" class="clearfix" id="js-danwei">
+               <div class="form-input clearfix">
+                 <label>单&nbsp;位&nbsp;名&nbsp;称</label><input type="text" name="mingcheng" id="mingcheng" value="{$mingcheng}">
+               </div>
+               <div class="form-input clearfix">
+                 <label>联系人姓名</label><input type="text" name="lianxiren" id="lianxiren" value="{$lianxiren}">
+               </div>
+               <div class="form-input clearfix">
+                 <label>联系人电话</label><input type="text" name="lianxi_dianhua" id="lianxi_dianhua" value="{$lianxi_dianhua}">
+               </div>
+               <if condition="!empty($pid)" >
+                 <input type="hidden" name="pid" value="{$pid}">
+               </if>
+               
+               <!-- <div class="form-input clearfix">
+                 <label>单&nbsp;位&nbsp;地&nbsp;址</label><input type="text">
+               </div> -->
+               <div class="form-input clearfix">
+                 <label>备&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;注</label>
+                 <textarea cols="60" rows="10" name="memo" >{$memo}</textarea>
+               </div>
+               <p><input type="submit" class="save"  value="提交"></p>
+            </form>
+          </div>
+      </div>
+      </div>
+  </body>
+</html>
+<script>
+  $(function(){
+    $().ready(function() {
+        $("#js-danwei").validate({
+            rules: {
+              mingcheng: {
+                required: true,
+              },
+              lianxiren: {
+                required: true,
+              },
+              lianxi_dianhua: {
+                required: true,
+              }
+            },
+            messages: {
+              mingcheng: {
+                required: "请输入用户名称"
+              },
+              lianxiren: {
+                required: "请输入联系人"
+              },
+              lianxi_dianhua: {
+                required: "请输入联系电话"
+              }
+            }
+        });
+    });
+    $.validator.setDefaults({
+        submitHandler: function() {
+          var data = $('form').serialize();
+          $.ajax({
+            url: _danwei_url,
+            type: 'POST',
+            dataType: 'json',
+            data: data,
+          })
+          .done(function(re) {
+            if(re.status==1){
+              location.href  = re.url;
+            }else{
+              alert(re.info)
+            }
+          })
+          .fail(function() {
+            console.log("error");
+          })
+        }
+    });
+  })
+</script>
