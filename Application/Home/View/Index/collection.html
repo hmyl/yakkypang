@@ -53,7 +53,10 @@
 				$('#slider').flexslider('removeSlide',0);
 			}
 			$('#slider').flexslider();
-			$('.wrap_right img').attr('src',data.photo);
+			console.log(document.body.clientHeight);
+			var imgHeight = document.body.clientHeight;
+			$('.wrap_right img').attr('src',data.photo).height(imgHeight);
+			console.log(	$('.wrap_right img').height());
 			if(data.images.length>0){
 				$.each(data.images,function(index, el) {
 					var li = '<li><img src="'+el+'"/></li>';

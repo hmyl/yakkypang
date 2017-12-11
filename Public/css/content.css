@@ -14,8 +14,8 @@
 	height: 140px;
 }
 .content_logo img{
-	width: 168px;
-	/*height: 105px;*/
+    width: 210px;
+    height: 85px;
 	margin-top: 61px;
 }
 .content_list{
@@ -82,6 +82,8 @@
 
 .content_list_1 > li{
 	margin: 5px 0px;
+	font-family: "黑体";
+	font-weight: normal;
 }
 
 .f17{

@@ -7,12 +7,12 @@
 	<link rel="stylesheet" type="text/css" href="/Public/css/amazeui.css">
 	<link rel="stylesheet" type="text/css" href="/Public/css/content.css">
 </head>
-<body style="overflow: hidden;">
+<body style="overflow: auto;">
 	<div class="content clearfixed">
 		<div class="content_right">
 			<div class="content_logo">
 				<a href="<?php echo U('index/home');?>" style="display: block;line-height: 140px;height: 100%;color: white;font-size: 25px;font-weight: 700;">
-					YAKKY PANG
+					<img src="/Public/img/images/logo11.png" alt="">
 				</a>
 			</div>
 			<div class="content_list">
@@ -59,6 +59,7 @@ t = getUrlParam('list');
 var lang = "<?php echo I('get.zh',0);?>";
 if(lang == "cn"){
 	chinese();
+	
 }
 
 

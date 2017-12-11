@@ -27,6 +27,7 @@
 			font-size:20px;
 		}
 		.cn p{
+			font-family: "黑体";
 			margin-top:20px;
 		}
 		.en p{
