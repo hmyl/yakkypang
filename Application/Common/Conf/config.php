@@ -26,7 +26,7 @@ return array(
 	'URL_CASE_INSENSITIVE' => true, //地址不区分大小写
 	'DEFAULT_MODULE'        =>  'Home',  // 默认模块
 	'DEFAULT_CONTROLLER'    =>  'Index', // 默认控制器名称
-	'DEFAULT_ACTION'        =>  'home', // 默认操作名称
+	'DEFAULT_ACTION'        =>  'index', // 默认操作名称
 
 	'RBAC_SUPERADMIN' => 'admin', //超级管理员名称  
 	'ADMIN_AUTH_KEY' => 'admin', //超级管理员识别 

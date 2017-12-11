@@ -40,9 +40,11 @@ class IndexController extends Controller {
         $this->display();
     }
 
-    public function index($id = 0){
-        // $re = M("index_images") -> select();
-        // p($re);
+    public function index(){
+        $this->display();
+    }
+    public function index1($id = 0){
+       
         // $this->display();die;
         if($id)
             $re = M('into_help')->field('id,name,desc')->where(['id'=>$id,'status'=>1])->select();
@@ -103,7 +105,7 @@ class IndexController extends Controller {
     function getDetail($id){
         if(empty($id))
             return '';
-        return $this->index($id);
+        return $this->index1($id);
        /* $imgModel = M('into_images');
         $res = $imgModel->field('images,photo')->where(' status=1 and series_id='.$id)->select();
         if($res){
