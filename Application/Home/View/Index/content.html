@@ -71,9 +71,13 @@ function en(){
 		t = 1;
 	}
 	var src = $('iframe').attr('_src');
+	
 	if(src == ""){
-	src = "{:I('get.url','')}";	
-}
+		src = "{:I('get.url','')}";	
+	}
+	
+	src = src.replace("zh/cn",'zh/en');
+	console.log(src);
 	location.href="{:U('index/content')}?zh=en&url="+src;
 }
 function cn(){
@@ -82,10 +86,12 @@ function cn(){
 		t = 1;
 	}
 	var src = $('iframe').attr('_src');
-        if(src == ""){
+    if(src == ""){
         src = "{:I('get.url','')}";     
-}
-
+	}
+	
+	src=src.replace('zh/en','zh/cn');
+	console.log(src);
 	location.href="{:U('index/content')}?zh=cn&url="+src;
 }
 $('a').click(function(){
