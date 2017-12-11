@@ -22,7 +22,7 @@ return array(
 	'uploadImg' =>'./Public/Uploads/img/',//文件上传路径
 	'TMPL_CACHE_ON'			=>false,
 
-	'URL_MODEL'   => 2,
+	'URL_MODEL'   => 1,
 	'URL_CASE_INSENSITIVE' => true, //地址不区分大小写
 	'DEFAULT_MODULE'        =>  'Home',  // 默认模块
 	'DEFAULT_CONTROLLER'    =>  'Index', // 默认控制器名称
