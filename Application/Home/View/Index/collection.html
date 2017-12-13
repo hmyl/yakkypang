@@ -11,7 +11,7 @@
 	<div class="wrap clearfixed">
 
 		<div class="wrap_right">
-			<img src="" alt="">
+			<img src="" alt="" >
 		</div>
 		
 		<div class="am-slider am-slider-default wrap_left" data-am-flexslider="{slideshow: false,animationLoop: false,prevText: 'Previous',nextText:'map',directionNav:true}" id='slider' style="background: black;">
@@ -53,10 +53,10 @@
 				$('#slider').flexslider('removeSlide',0);
 			}
 			$('#slider').flexslider();
-			console.log(document.body.clientHeight);
-			var imgHeight = document.body.clientHeight;
-			$('.wrap_right img').attr('src',data.photo).height(imgHeight);
-			console.log(	$('.wrap_right img').height());
+			// console.log(document.body.clientHeight);
+			// var imgHeight = document.body.clientHeight;
+			$('.wrap_right img').attr('src',data.photo);
+			// $('.wrap_right img').attr('src',data.photo).height(imgHeight);
 			if(data.images.length>0){
 				$.each(data.images,function(index, el) {
 					var li = '<li><img src="'+el+'"/></li>';
